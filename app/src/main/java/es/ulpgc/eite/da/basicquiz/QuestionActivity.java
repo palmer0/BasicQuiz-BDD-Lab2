@@ -1,8 +1,8 @@
 package es.ulpgc.eite.da.basicquiz;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,7 +21,7 @@ public class QuestionActivity extends AppCompatActivity {
     private boolean nextButtonEnabled;
     //private boolean trueButtonPressed;
 
-    private String resultText;
+    private String resultText ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,12 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
         setTitle(R.string.question_screen_title);
 
-        //initLayoutData();
-        //linkLayoutComponents();
-        //updateLayoutContent();
+        //questionsArray = getResources().getStringArray(R.array.questions_array);
+        //answersArray = getResources().getIntArray(R.array.answers_array);
+
+        initLayoutData();
+        linkLayoutComponents();
+        updateLayoutContent();
         //initLayoutButtons();
     }
 
@@ -118,7 +121,10 @@ public class QuestionActivity extends AppCompatActivity {
     */
 
     private void updateLayoutContent() {
+
+        //trueButton.setText(R.string.true_button_label);
         questionField.setText(questionsArray[questionIndex]);
+
 
         if (!nextButtonEnabled) {
             resultText = getString(R.string.empty_text);
@@ -130,6 +136,7 @@ public class QuestionActivity extends AppCompatActivity {
         cheatButton.setEnabled(!nextButtonEnabled);
         falseButton.setEnabled(!nextButtonEnabled);
         trueButton.setEnabled(!nextButtonEnabled);
+
     }
 
     private void onTrueButtonClicked() {
@@ -139,6 +146,8 @@ public class QuestionActivity extends AppCompatActivity {
         } else {
             resultText = getString(R.string.incorrect_text);
         }
+
+        //resultField.setText(resultText);
 
         nextButtonEnabled = true;
         updateLayoutContent();
@@ -151,6 +160,8 @@ public class QuestionActivity extends AppCompatActivity {
         } else {
             resultText = getString(R.string.incorrect_text);
         }
+
+        //resultField.setText(resultText);
 
         nextButtonEnabled = true;
         updateLayoutContent();
@@ -169,13 +180,14 @@ public class QuestionActivity extends AppCompatActivity {
         nextButtonEnabled = false;
         questionIndex++;
 
+        //updateLayoutContent();
+
         checkQuizCompletion();
 
         if (questionIndex < questionsArray.length) {
             //trueButtonPressed = false;
             updateLayoutContent();
         }
-
     }
 
     private void checkQuizCompletion() {
@@ -184,5 +196,23 @@ public class QuestionActivity extends AppCompatActivity {
             questionIndex = 0;
         }
 
+    }
+
+    public void onTrueButtonTap(View view) {
+        Log.d(TAG, "onTrueButtonTap");
+
+        onTrueButtonClicked();
+    }
+
+    public void onFalseButtonTap(View view) {
+        Log.d(TAG, "onFalseButtonTap");
+
+        onFalseButtonClicked();
+    }
+
+    public void onNextButtonTap(View view) {
+        Log.d(TAG, "onNextButtonTap");
+
+        onNextButtonClicked();
     }
 }
