@@ -35,7 +35,7 @@ public class QuestionActivity extends AppCompatActivity {
         initLayoutData();
         linkLayoutComponents();
         updateLayoutContent();
-        //initLayoutButtons();
+        initLayoutButtons();
     }
 
     private void initLayoutButtons() {
@@ -198,6 +198,9 @@ public class QuestionActivity extends AppCompatActivity {
 
     }
 
+
+    /*
+    // trueButton.setOnClickListener(v -> onTrueButtonClicked());
     public void onTrueButtonTap(View view) {
         Log.d(TAG, "onTrueButtonTap");
 
@@ -215,4 +218,6 @@ public class QuestionActivity extends AppCompatActivity {
 
         onNextButtonClicked();
     }
+
+    */
 }

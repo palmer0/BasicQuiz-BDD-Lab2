@@ -35,7 +35,6 @@
             android:id="@+id/trueButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onTrueButtonTap"
             android:text="@string/true_button_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -49,7 +48,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/false_button_label"
-            android:onClick="onFalseButtonTap"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </LinearLayout>
 
@@ -80,7 +78,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next_button_label"
-            android:onClick="onNextButtonTap"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="Next" />
 
